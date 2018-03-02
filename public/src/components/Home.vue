@@ -5,10 +5,10 @@
       <input type="text" v-model="artist" placeholder="Search Title">
       <button type="submit" class="clicker">Search Tunes</button>
     </form>
-    <div>
-      <itunes></itunes>
-    </div>
+     <itunes></itunes>
+     
   </div>
+    
 </template>
 
 <script>
@@ -41,7 +41,7 @@
   .my-tunes {
     display: inline-block;
     min-height: 500px;
-    min-width: 45%;
+    width: 50%;
     background: rgb(61, 119, 61);
   }
 
@@ -49,6 +49,6 @@
     display: inline-block;
     background: grey;
     min-height: 500px;
-    min-width: 45%;
+    width: 50%;
   }
 </style>

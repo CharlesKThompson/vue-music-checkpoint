@@ -1,6 +1,7 @@
 import vue from 'vue'
 import vuex from 'vuex'
 import $ from 'jquery'
+///import router here when ready to implement auth
 
 vue.use(vuex)
 
@@ -18,6 +19,12 @@ var store = new vuex.Store({
     },
     setActiveTune(state, payload) {
       state.activeTune = payload
+    },
+    setMyTunes(state, payload) {
+      vue.set(state.myTunes, payload.ItunesId, payload.itunes || [])
+    },
+    setUser(state,payload) {
+      state.user = payload
     }
   },
 
@@ -31,21 +38,28 @@ var store = new vuex.Store({
         commit('setResults', data.results)
       })
     },
+
+    //this should send a get request to your server to return the list of saved tunes
     getMyTunes({commit, dispatch}){
-      //this should send a get request to your server to return the list of saved tunes
+      
     },
+
+    //this will post to your server adding a new track to your tunes
     addToMyTunes({commit, dispatch}, track){
-      //this will post to your server adding a new track to your tunes
     },
+
+    //Removes track from the database with delete
     removeTrack({commit, dispatch}, track){
-      //Removes track from the database with delete
     },
+
+    //this should increase the position / upvotes and downvotes on the track
     promoteTrack({commit, dispatch}, track){
-      //this should increase the position / upvotes and downvotes on the track
     },
+
+    //this should decrease the position / upvotes and downvotes on the track
     demoteTrack({commit, dispatch}, track){
-      //this should decrease the position / upvotes and downvotes on the track
     },
+
     setActiveTune({commit, dispatch}, payload) {
       commit("setActiveTune", payload)
     }
