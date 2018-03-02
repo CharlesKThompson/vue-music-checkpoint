@@ -1,8 +1,7 @@
 var mongoose = require("mongoose");
-console.log('Be sure to put in your connection string!')
-var connectionString = "";
-
+var connectionString = "mongodb://<Chuckinator>:<Chuckinator>@ds012578.mlab.com:12578/music-vue";
 var connection = mongoose.connection;
+
 mongoose.connect(connectionString);
 
 connection.on("error", err => {

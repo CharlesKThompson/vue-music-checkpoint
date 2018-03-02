@@ -7,20 +7,27 @@ vue.use(vuex)
 var store = new vuex.Store({
   state: {
     myTunes: [],
-    results: []
+    searchResults: [],
+    user: {},
+    activeTune: {}
   },
+
   mutations: {
     setResults(state, results){
-      state.results = results
+      state.searchResults = results
+    },
+    setActiveTune(state, payload) {
+      state.activeTune = payload
     }
   },
+
   actions: {
     getMusicByArtist({commit, dispatch}, artist) {
       var url = '//bcw-getter.herokuapp.com/?url=';
       var url2 = 'https://itunes.apple.com/search?term=' + artist;
       var apiUrl = url + encodeURIComponent(url2);
-      $.get(apiUrl).then(data=>{
-        commit('setResults', data)
+      $.get(apiUrl).then(res=>{
+        commit('setResults', res.data.results)
       })
     },
     getMyTunes({commit, dispatch}){
@@ -37,6 +44,9 @@ var store = new vuex.Store({
     },
     demoteTrack({commit, dispatch}, track){
       //this should decrease the position / upvotes and downvotes on the track
+    },
+    setActiveTune({commit, dispatch}, payload) {
+      commit("setActiveTune", payload)
     }
 
   }
