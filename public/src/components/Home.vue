@@ -5,16 +5,21 @@
       <input type="text" v-model="artist" placeholder="Search Title">
       <button type="submit" class="clicker">Search Tunes</button>
     </form>
-     <itunes></itunes>
-     
+    <div class="row">
+
+      <itunes></itunes>
+      <MyTunes></MyTunes>
+    </div>
+
   </div>
-    
+
 </template>
 
 <script>
 
   import MyTunes from './MyTunes.vue'
   import Itunes from './Itunes.vue'
+
   export default {
     name: 'Home',
     data() {
@@ -26,12 +31,30 @@
     methods: {
       musicSearch() {
         this.$store.dispatch('getMusicByArtist', this.artist)
+      },
+      getMyMusic(itune) {
+        this.$store.dispatch('getMyMusic', this.itune)
+      },
+      addToMyTunes(itune) {
+        this.store.dispatch("addToMyTunes")
+      },
+      removeTrack(itune) {
+        this.store.dipsatch("removeTrack")
       }
     },
 
     components: {
       Itunes,
       MyTunes
+    },
+
+    computed: {
+      itunes() {
+        return this.$store.state.itunes
+      },
+      activeTune() {
+        return this.$store.state.activeTune
+      }
     }
   }
 </script>

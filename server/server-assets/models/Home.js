@@ -1,6 +1,6 @@
 var mongoose = require("mongoose")
 var Schema = mongoose.Schema
-var ObjectId = mongoose.SchematTypes.ObjectId
+var ObjectId = mongoose.SchemaTypes.ObjectId
 var SchemaName = "Home"
 
 
