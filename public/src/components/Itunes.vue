@@ -1,13 +1,13 @@
 <template>
-    <div class="itunes">
-        <h1>Find Your Awesomest or Okayest Music Here!</h1>
+    <div class='itunes'>
+        <h1>What we found on {{artist}}:</h1>
         <div class="row">
             <ol class="col-sm-6">
                 <li v-for="itune in itunes">
-                    <p @click="addToMyTunes(itune)"></p>
+                    <p @click="addToMyTunes(itune)">{{itunes.artist}}</p>
                 </li>
             </ol>
-
+            <info class ="col-sm-6" :itune="activeTune" :artist="artist"></info>
         </div>
     </div>
 </template>
@@ -16,12 +16,12 @@
 
     import MyTunes from './MyTunes'
 
-    
+
     export default {
-        name: 'iTunes',
+        name: 'itunes',
         data() {
             return {
-                
+
             }
         },
 
@@ -41,7 +41,7 @@
         },
 
         components: {
-            info: Itunes
+            info: MyTunes
         },
 
         props: ['artist']
@@ -50,5 +50,5 @@
 
 </script>
 
-<style>
+<style scoped>
 </style>

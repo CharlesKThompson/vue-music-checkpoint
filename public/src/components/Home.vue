@@ -1,58 +1,54 @@
 <template>
-  <div class="home">
+  <div class="Home">
     <!-- YOU WILL PROBABLY END UP WITH SOMETHING LIKE THIS -->
     <form class="col-sm-6" @submit.prevent='musicSearch'>
       <input type="text" v-model="artist" placeholder="Search Title">
-      <button type = "submit" class = "clicker">Search Tunes</button>
+      <button type="submit" class="clicker">Search Tunes</button>
     </form>
-    <itunes class="itunes"></itunes>
     <div>
+      <itunes></itunes>
     </div>
-
-
-    <my-tunes class="my-tunes"></my-tunes>
   </div>
 </template>
 
 <script>
 
-import MyTunes from './MyTunes.vue'
-import Itunes from './Itunes.vue'
-export default {
-  name: 'home',
-  data () {
-    return {
-      artist:''
-    }
-  },
+  import MyTunes from './MyTunes.vue'
+  import Itunes from './Itunes.vue'
+  export default {
+    name: 'Home',
+    data() {
+      return {
+        artist: ''
+      }
+    },
 
-  methods: {
-    musicSearch() {
-      this.$store.dispatch('getMusicByArtist', this.artist)
-    }
-  },
+    methods: {
+      musicSearch() {
+        this.$store.dispatch('getMusicByArtist', this.artist)
+      }
+    },
 
-  components: {
-    Itunes,
-    MyTunes
+    components: {
+      Itunes,
+      MyTunes
+    }
   }
-}
 </script>
 
 
 <style>
-.my-tunes{
-  display: inline-block;
-  min-height: 500px;
-  min-width: 50%;
-  background: green;
-}
+  .my-tunes {
+    display: inline-block;
+    min-height: 500px;
+    min-width: 45%;
+    background: rgb(61, 119, 61);
+  }
 
-.itunes{
-  display: inline-block;
-  background: red;
-  min-height: 500px;
-  min-width: 45%;
-}
-
+  .itunes {
+    display: inline-block;
+    background: grey;
+    min-height: 500px;
+    min-width: 45%;
+  }
 </style>
