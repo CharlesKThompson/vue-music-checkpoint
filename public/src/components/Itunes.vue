@@ -43,7 +43,7 @@
 
         methods: {
             addToMyTunes(itune) {
-                this.$store.dispatch('setActiveTune', itune)
+                this.$store.dispatch('addToMyTunes', this.itune)
             }
         },
 
