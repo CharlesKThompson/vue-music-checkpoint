@@ -31,7 +31,7 @@
 
             }
         },
-
+     //   props: ['itune'],
         computed: {
             itunes() {
                 return this.$store.state.searchResults

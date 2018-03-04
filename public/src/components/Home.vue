@@ -53,6 +53,9 @@
       itunes() {
         return this.$store.state.itunes
       },
+      mytunes() {
+        return this.$store.state.mytunes
+      },
       activeTune() {
         return this.$store.state.activeTune
       }

@@ -2,7 +2,7 @@
     <div class="my-Tunes">
         <h1>List of MyTunes</h1>
         <ol class="col-sm-6">
-            <li v-for="song in myTunes">
+            <li v-for="itune in myTunes">
                 <p>{{itune.artistName}}</p>
                 <p>{{itune.collectionName}}</p>
                 <p>{{itune.trackName}}</p>
@@ -25,18 +25,16 @@
 
     export default {
         name: 'MyTunes',
-        props: ['itune'],
         data() {
             return {
 
             }
         },
-        
 
         computed: {
-            // myTunes() {
-            //     return this.$store.state.myTunes[this.myTunes.artistName] || []
-            // },
+            itunes() {
+                return this.$store.state.searchResults
+            },
             activeTune() {
                 return this.$store.state.activeTune
             }

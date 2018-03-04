@@ -6,15 +6,15 @@ import router from "../router"
 
 var api = axios.create({
   baseURL: "//localhost:3000/api/",
-  timeout: 4000,
-  withCredentials: true
-})
-
-var auth = axios.create({
-  baseURL: "//localhost:3000/auth/",
   timeout: 5000,
   withCredentials: true
 })
+
+// var auth = axios.create({
+//   baseURL: "//localhost:3000/auth/",
+//   timeout: 5000,
+//   withCredentials: true
+// })
 
 
 vue.use(vuex)
@@ -28,15 +28,15 @@ var store = new vuex.Store({
   },
 
   mutations: {
-    setResults(state, results){
-      state.searchResults = results
+    setResults(state, payload){
+      state.searchResults = payload
     },
     setActiveTune(state, payload) {
       state.activeTune = payload
     },
     //state.myTunes or state.activeTune?
     setMyTunes(state, payload) {
-      vue.set(state.myTunes, payload.ituneId, payload.myTunes || [])
+      vue.set(state.myTunes, payload.artistName, payload.myTunes || [])
     },
     setUser(state,payload) {
       state.user = payload
@@ -68,9 +68,12 @@ var store = new vuex.Store({
     //this should send a get request to your server to return the list of saved tunes
     getMyTunes({commit, dispatch}, payload){
       api
-      .get("/myTunes/" + payload.artistId)
+      .get("myTunes/" + payload.artistId)
       .then(res => {
-        commit("setMyTunes", { ItunesId: payload.artistId, myTunes: res.data})
+        commit("setMyTunes", res.data)
+      })
+      .catch(err => {
+        console.log(err)
       })
     },
 
@@ -85,9 +88,9 @@ var store = new vuex.Store({
     //this will post to your server adding a new track to your tunes
     addToMyTunes({commit, dispatch}, itune){
       api
-      .post("myTunes" + itune.artistId)
+      .post("myTunes/" + itune.artistName)
       .then(res=> {
-        dispatch("getMyTunes", { artistId: res.data.ItunesId})
+        dispatch("getMyTunes", { artistName: res.data.ItunesId})
       })
     },
 
