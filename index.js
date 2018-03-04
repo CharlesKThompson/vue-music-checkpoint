@@ -1,6 +1,6 @@
 var express = require("express")
 var  bp = require("body-parser")
-var cors = require("cors")
+var cors = require('cors')
 var  server = express()
 require("./server/server-assets/db/mlab-config")
 var  port = 3000
@@ -15,12 +15,14 @@ server.use(session)
 server.use(bp.json());
 server.use(bp.urlencoded({ extended: true }));
 
+server.use(authRotes)
+
 //Your routes here
 server.use(iTunesRoutes.router)
 server.use(myTunesRoutes.router)
 
 
-server.use("/api/*", (error, req, res, next) => {
+server.use('*', (error, req, res, next) => {
     res.status(400).send(error);
   });
   

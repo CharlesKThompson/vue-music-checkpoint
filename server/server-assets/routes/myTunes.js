@@ -2,7 +2,7 @@ var router = require("express").Router()
 var myTunes = require("../models/myTunes")
 
 
-router.post("api/itunes/", (req, res, next) => {
+router.post("api/mytunes/", (req, res, next) => {
     req.body.creatorId = req.session.uid
 
     myTunes.create(req.body)

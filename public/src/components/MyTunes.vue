@@ -1,5 +1,5 @@
 <template>
-    <div class="my-tunes">
+    <div class="my-Tunes">
         <h1>List of MyTunes</h1>
         <ol class="col-sm-6">
             <li v-for="song in myTunes">
@@ -34,9 +34,9 @@
         
 
         computed: {
-            myTunes() {
-                return this.$store.state.myTunes[this.myTunes.artistName] || []
-            },
+            // myTunes() {
+            //     return this.$store.state.myTunes[this.myTunes.artistName] || []
+            // },
             activeTune() {
                 return this.$store.state.activeTune
             }

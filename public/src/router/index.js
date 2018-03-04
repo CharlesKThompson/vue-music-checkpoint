@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-import Home from '../components/Home'
-import Itunes from '../components/Itunes'
-import mytunes from '../components/MyTunes'
+//@ts-ignore
+import Home from '@/components/Home'
+//@ts-ignore
+import Itunes from '@/components/Itunes'
+//@ts-ignore
+import mytunes from '@/components/MyTunes'
 
 Vue.use(Router)
 
@@ -15,12 +17,12 @@ export default new Router({
             component: Home
         },
         {
-            path: '/',
+            path: '/api/itunes',
             name: 'Itunes',
             component: Itunes
         },
         {
-            path: '/',
+            path: '/api/mytunes',
             name: 'MyTunes',
             component: mytunes
         }
