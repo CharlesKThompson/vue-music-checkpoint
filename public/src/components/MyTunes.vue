@@ -24,7 +24,7 @@
 
 
     export default {
-        name: 'myTunes',
+        name: 'MyTunes',
         props: ['itune'],
         data() {
             return {
