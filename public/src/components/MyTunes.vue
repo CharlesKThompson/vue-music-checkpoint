@@ -10,7 +10,7 @@
                     <img v-bind:src="itune.artworkUrl60" alt="album art">
                 </p>
                 <button @click="removeTrack(itune)">Remove from MyTunes</button>
-                <audio controls="contols">
+                <audio controls="controls">
                     <source v-bind:src="itune.previewUrl">
                 </audio>
             </li>

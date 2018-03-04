@@ -2,7 +2,7 @@ import vue from 'vue'
 import vuex from 'vuex'
 import $ from 'jquery'
 import axios from "axios"
-///import router here when ready to implement auth
+import router from "../router"
 
 var api = axios.create({
   baseURL: "//localhost:3000/api/",
@@ -79,7 +79,7 @@ var store = new vuex.Store({
     //this will post to your server adding a new track to your tunes
     addToMyTunes({commit, dispatch}, itune){
       api
-      .post("itunes" + itune.artistId + "/itunes", itune)
+      .post("itunes/" + itune.artistId + "/itunes", itune)
       .then(res=> {
         dispatch("getMyTunes", { artistId: res.data.ItunesId})
       })

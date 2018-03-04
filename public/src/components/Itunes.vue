@@ -11,7 +11,7 @@
                         <img v-bind:src="itune.artworkUrl60" alt="album art">
                     </p>
                     <button @click="addToMyTunes(itune)">Add to MyTunes</button>
-                    <audio controls="contols">
+                    <audio controls="controls">
                         <source v-bind:src="itune.previewUrl">
                     </audio>
                 </li>
@@ -43,7 +43,7 @@
 
         methods: {
             addToMyTunes(itune) {
-                this.$store.dispatch('addToMyTunes', this.itune)
+                this.$store.dispatch('addToMyTunes', itune)
             }
         },
 
