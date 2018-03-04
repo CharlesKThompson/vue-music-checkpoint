@@ -25,16 +25,17 @@
 
     export default {
         name: 'myTunes',
-        props: ['itune', 'artistName'],
+        props: ['itune'],
         data() {
             return {
 
             }
         },
+        
 
         computed: {
             myTunes() {
-                return this.$store.state.myTunes
+                return this.$store.state.myTunes[this.myTunes.artistName] || []
             },
             activeTune() {
                 return this.$store.state.activeTune
@@ -47,9 +48,6 @@
             }
         },
 
-        mounted() {
-            this.$store.dispatch('getMyTunes', this.activeTune)
-        }
 
 
     }

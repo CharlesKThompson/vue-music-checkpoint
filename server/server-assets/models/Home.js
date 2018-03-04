@@ -7,3 +7,6 @@ var SchemaName = "Home"
 var schema = new Schema({
     
 })
+
+module.exports = mongoose.model(SchemaName, schema
+)

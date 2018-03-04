@@ -3,17 +3,17 @@ import Router from 'vue-router'
 
 import Home from '@/components/Home'
 import Itunes from '@/components/Itunes'
-import Mytunes from '@/components/Mytunes'
+import mytunes from '@/components/Mytunes'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [
-        {
-            path: '/',
-            name: 'Home',
-            component: Home
-        }
+        // {
+        //     path: '/',
+        //     name: 'Home',
+        //     component: Home
+        // }
         // {
         //     path: '/login',
         //     name: 'Login',

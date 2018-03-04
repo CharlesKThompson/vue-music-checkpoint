@@ -17,8 +17,8 @@
 
 <script>
 
-  import MyTunes from './MyTunes.vue'
   import Itunes from './Itunes.vue'
+  import MyTunes from './MyTunes.vue'
 
   export default {
     name: 'Home',

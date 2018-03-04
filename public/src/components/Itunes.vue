@@ -25,7 +25,7 @@
 
 
     export default {
-        name: 'itunes',
+        name: 'Itunes',
         data() {
             return {
 
