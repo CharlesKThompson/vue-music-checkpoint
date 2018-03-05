@@ -93,7 +93,7 @@ var store = new vuex.Store({
       api
       .post("myTunes/" + itune.artistId)
       .then(res=> {
-        dispatch("setMyTunes", res.data)
+        dispatch("getMyTunes", res.data)
       })
     },
 

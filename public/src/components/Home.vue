@@ -37,10 +37,10 @@
         this.$store.dispatch('getMyMusic', this.itune)
       },
       addToMyTunes(itune) {
-        this.$store.dispatch("addToMyTunes")
+        this.$store.dispatch("addToMyTunes", itune)
       },
       removeTrack(itune) {
-        this.$store.dipsatch("removeTrack")
+        this.$store.dispatch("removeTrack")
       }
     },
 
@@ -65,7 +65,7 @@
 
 
 <style>
-  .my-tunes {
+  .my-Tunes {
     display: inline-block;
     min-height: 500px;
     width: 50%;

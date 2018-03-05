@@ -23,7 +23,7 @@ router.get("api/itunes/:itunesid", (req, res, next) => {
 
 //CREAT A SONG
 router.post("api/itunes/", (req, res, next) => {
-    req.body.creatorId = req.session.uid
+    // req.body.creatorId = req.session.uid
 
     Itunes.create(req.body)
     .then(itune => {

@@ -5,7 +5,7 @@ import Home from '@/components/Home'
 //@ts-ignore
 import Itunes from '@/components/Itunes'
 //@ts-ignore
-import mytunes from '@/components/MyTunes'
+import Mytunes from '@/components/MyTunes'
 
 Vue.use(Router)
 
@@ -24,7 +24,7 @@ export default new Router({
         {
             path: '/api/mytunes',
             name: 'MyTunes',
-            component: mytunes
+            component: Mytunes
         }
         // {
         //     path: '/login',
