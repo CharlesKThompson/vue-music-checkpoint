@@ -32,8 +32,8 @@
         },
 
         computed: {
-            itunes() {
-                return this.$store.state.searchResults
+            myTunes() {
+                return this.$store.state.myTunes
             },
             activeTune() {
                 return this.$store.state.activeTune

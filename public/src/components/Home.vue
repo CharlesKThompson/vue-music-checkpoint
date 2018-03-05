@@ -37,10 +37,10 @@
         this.$store.dispatch('getMyMusic', this.itune)
       },
       addToMyTunes(itune) {
-        this.store.dispatch("addToMyTunes")
+        this.$store.dispatch("addToMyTunes")
       },
       removeTrack(itune) {
-        this.store.dipsatch("removeTrack")
+        this.$store.dipsatch("removeTrack")
       }
     },
 
