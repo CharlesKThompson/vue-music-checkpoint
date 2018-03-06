@@ -7,7 +7,7 @@ import router from "../router"
 var api = axios.create({
   baseURL: "//localhost:3000/api/",
   timeout: 5000,
-  // withCredentials: true
+  withCredentials: true
 })
 
 // var auth = axios.create({
@@ -71,7 +71,7 @@ var store = new vuex.Store({
     //this should send a get request to your server to return the list of saved tunes
     getMyTunes({commit, dispatch}, payload){
       api
-      .get("myTunes/" + payload.artistId)
+      .get("/myTunes/")
       .then(res => {
         commit("setMyTunes", res.data)
       })
@@ -91,18 +91,21 @@ var store = new vuex.Store({
     //this will post to your server adding a new track to your tunes
     addToMyTunes({commit, dispatch}, itune){
       api
-      .post("myTunes/" + itune.artistId)
+      .post("myTunes/" ,itune)
       .then(res=> {
-        dispatch("getMyTunes", res.data)
+        dispatch("getMyTunes")
       })
     },
 
     //Removes track from the database with delete
     removeTrack({commit, dispatch}, track){
       api
-      .delete("itunes/" + track.artistId)
+      .delete("mytunes/" + track._id)
       .then(res => {
         dispatch("getMyTunes")
+      })
+      .catch(err => {
+        console.log
       })
     },
 

@@ -9,8 +9,16 @@ var  port = 3000
 var ItunesRoutes = require('./server/server-assets/routes/Itunes')
 var myTunesRoutes = require('./server/server-assets/routes/myTunes')
 
+var whitelist = ['http://localhost:8080'];
+var corsOptions = {
+	origin: function (origin, callback) {
+		var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+		callback(null, originIsWhitelisted);
+	},
+	credentials: true
+};
 
-server.use(cors());
+server.use(cors(corsOptions));
 //server.use(session)
 server.use(bp.json());
 server.use(bp.urlencoded({ extended: true }));

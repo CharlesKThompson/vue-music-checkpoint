@@ -5,6 +5,7 @@
       <input type="text" v-model="artist" placeholder="Search Title">
       <button type="submit" class="clicker">Search Tunes</button>
     </form>
+   
     <div class="row">
 
       <itunes></itunes>
@@ -29,12 +30,16 @@
       }
     },
 
+    mounted() {
+this.$store.dispatch('getMyTunes')
+    },
+
     methods: {
       musicSearch() {
         this.$store.dispatch('getMusicByArtist', this.artist)
       },
       getMyMusic(itune) {
-        this.$store.dispatch('getMyMusic', this.itune)
+        this.$store.dispatch('getMyTunes', itune)
       },
       addToMyTunes(itune) {
         this.$store.dispatch("addToMyTunes", itune)
