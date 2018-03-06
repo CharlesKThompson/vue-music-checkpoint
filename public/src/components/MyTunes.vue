@@ -10,6 +10,8 @@
                     <img v-bind:src="itune.artworkUrl60" alt="album art">
                 </p>
                 <button @click="removeTrack(itune)">Remove from MyTunes</button>
+                <button @click="promoteTrack">Upvote</button>
+                <button @click="demoteTrack">Downvote</button>
                 <audio controls="controls">
                     <source v-bind:src="itune.previewUrl">
                 </audio>
@@ -43,8 +45,14 @@
         methods: {
             removeTrack(itune) {
                 this.$store.dispatch('removeTrack', itune)
+            },
+            promoteTrack(itune) {
+                this.$store.dispatch('promoteTrack', itune)
+            },
+            demoteTrack(itune) {
+                this.$store.dispatch('demoteTrack', itune)
             }
-        },
+        }
 
 
 

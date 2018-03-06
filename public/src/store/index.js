@@ -109,13 +109,29 @@ var store = new vuex.Store({
       })
     },
 
+    updateTrack({ commit, dispatch }, payload) {
+    api 
+      .put("mytunes/" + payload._id, payload)
+      .then(res => {
+        dispatch("getMyTunes")
+      })
+    },
+
     //this should increase the position / upvotes and downvotes on the track
     promoteTrack({commit, dispatch}, track){
+      var position = track.index
+      if(position !== 0){
+          position.splice(track.b, track.a)
+      }
     },
 
     //this should decrease the position / upvotes and downvotes on the track
     demoteTrack({commit, dispatch}, track){
-    },
+      var position = track.index
+      if(position !== position.length-1) {
+          position.splice(track.a, track.b)
+    }
+  },
 
     setActiveTune({commit, dispatch}, payload) {
       commit("setActiveTune", payload)
