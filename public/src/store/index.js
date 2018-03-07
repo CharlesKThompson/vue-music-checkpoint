@@ -1,4 +1,5 @@
 import vue from 'vue'
+
 import vuex from 'vuex'
 import $ from 'jquery'
 import axios from "axios"
@@ -18,6 +19,7 @@ var api = axios.create({
 
 
 vue.use(vuex)
+
 
 var store = new vuex.Store({
   state: {

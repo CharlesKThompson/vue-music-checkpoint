@@ -11,6 +11,7 @@
                         <img v-bind:src="itune.artworkUrl60" alt="album art">
                     </p>
                     <button @click="addToMyTunes(itune)">Add to MyTunes</button>
+                    <p>{{itune.upvotes}}</p>
                     <audio controls="controls">
                         <source v-bind:src="itune.previewUrl">
                     </audio>
