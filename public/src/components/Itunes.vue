@@ -1,7 +1,7 @@
 <template>
     <div class='itunes'>
         <h1>What we found on Itunes:</h1>
-        <div class="row">
+        <div class="row justify-content-center">
             <ol class="col-sm-6">
                 <li v-for="itune in itunes">
                     <p>{{itune.artistName}}</p>

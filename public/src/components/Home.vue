@@ -71,15 +71,17 @@ this.$store.dispatch('getMyTunes')
 
 <style>
   .my-Tunes {
+    text-align: center;
     display: inline-block;
     min-height: 500px;
     width: 50%;
-    background: rgb(61, 119, 61);
+    background: rgb(53, 131, 83);
   }
 
   .itunes {
+    text-align: center;
     display: inline-block;
-    background: grey;
+    background:rgb(171, 189, 186);
     min-height: 500px;
     width: 50%;
   }
