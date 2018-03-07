@@ -10,8 +10,9 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-
+//@ts-ignore
 Vue.use(Sortable)
+//@ts-ignore
 Vue.use(draggable)
 
 /* eslint-disable no-new */

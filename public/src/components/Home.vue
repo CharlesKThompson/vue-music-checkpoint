@@ -46,6 +46,9 @@ this.$store.dispatch('getMyTunes')
       },
       removeTrack(itune) {
         this.$store.dispatch("removeTrack")
+      },
+      getVotes(itune) {
+        this.$store.dispatch('getVotes', itune)
       }
     },
 
@@ -63,6 +66,9 @@ this.$store.dispatch('getMyTunes')
       },
       activeTune() {
         return this.$store.state.activeTune
+      },
+      votes() {
+        return this.$store.state.votes
       }
     }
   }

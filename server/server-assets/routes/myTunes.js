@@ -26,7 +26,15 @@ router.delete("/api/myTunes/:myTunesId", (req, res, next) => {
     })
     .catch(next)
 
-})
+}),
+
+router.put("/api/myTunes/:myTunesId", (req, res, next) => {
+    myTunes.findByIdAndUpdate(req.params.myTunesId, req.body)
+    .then(itune => {
+        return res.send(itune)
+    })
+    .catch(next)
+    })
 
 
 module.exports = { router }

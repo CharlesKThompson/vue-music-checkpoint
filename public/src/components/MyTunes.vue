@@ -17,8 +17,8 @@
                                     <img v-bind:src="itune.artworkUrl60" alt="album art">
                                 </p>
                                 <button @click="removeTrack(itune)">Remove from MyTunes</button>
-                                <!-- <button @click="promoteTrack">Upvote</button>
-                                <button @click="demoteTrack">Downvote</button> -->
+                                <button class="btn-success" @click="updateMyTunes(itune)">Up</button>
+                                <h3>{{itune.voteCount}}</h3>
                                 <p>{{itune.upvotes}}</p>
                                 <audio controls="controls">
                                     <source v-bind:src="itune.previewUrl">
@@ -43,9 +43,8 @@
         name: 'MyTunes',
         data() {
             return {
-                list: [
-
-                ]
+                list: [],
+                coutner: 0
             }
         },
 
@@ -67,7 +66,17 @@
             },
             demoteTrack(itune) {
                 this.$store.dispatch('demoteTrack', itune)
+            },
+            updateMyTunes(itune) {
+                itune.voteCount++
+                this.$store.dispatch('updateTrack', itune)
+            },
+            getVotes(itune) {
+                this.$store.dispatch('getVotes', post)
             }
+        },
+        incCounter() {
+            this.counter++
         },
 
         components: {
